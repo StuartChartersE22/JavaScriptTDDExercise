@@ -32,9 +32,13 @@ it("should have cards", function(){
 it("can draw a card", function(){
 const result = player.drawCard();
 assert.deepStrictEqual(result, card1);
-
-
 });
 
+it("can choose the highest category", function(){
+const drawnCard = player.drawCard()
+const result = player.selectCategory(drawnCard);
+assert.strictEqual(result, "strength");
+
+});
 
 });
