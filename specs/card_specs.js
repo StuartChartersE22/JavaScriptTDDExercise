@@ -15,7 +15,7 @@ describe("Card", function(){
   it("should have a name", function(){
 
     const result = card.name;
-    assert.strictEquals(result, "Superman");
+    assert.strictEqual(result, "Superman");
 
   });
 
