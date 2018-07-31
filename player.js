@@ -3,3 +3,10 @@ const Player = function(name, cards) {
   this.cards = cards;
 }
 module.exports = Player;
+
+
+
+Player.prototype.drawCard = function () {
+  return this.cards.shift();
+
+};

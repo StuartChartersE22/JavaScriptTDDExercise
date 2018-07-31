@@ -27,11 +27,14 @@ it("should have a name", function(){
 it("should have cards", function(){
   const result = player.cards;
   assert.deepStrictEqual(result, cards);
+});
 
+it("can draw a card", function(){
+const result = player.drawCard();
+assert.deepStrictEqual(result, card1);
 
 
 });
-
 
 
 });
