@@ -30,11 +30,11 @@ beforeEach(function(){
 
 it("should have players", function () {
   assert.deepStrictEqual(game.players, players);
-})
+});
 
-xit("can select declaring player", function () {
-
-})
+it("should let first player starts as declaring player", function () {
+  assert.deepStrictEqual(game.declaringPlayer, player1);
+});
 
 
 
