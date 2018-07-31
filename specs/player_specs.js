@@ -41,9 +41,9 @@ assert.strictEqual(result, "strength");
 });
 
 it("should start as not the declaring player", function(){
-
 assert.strictEqual(player.isDeclaringPlayer, false);
-
+player.isDeclaringPlayer=true;
+assert.strictEqual(player.isDeclaringPlayer, true);
 });
 
 
