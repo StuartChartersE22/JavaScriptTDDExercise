@@ -40,6 +40,14 @@ Game.prototype.findPlayerById = function (id) {
   }
 };
 
+Game.prototype.removeLosers = function () {
+  for(i=0; i<this.players.length; i++){
+    if(this.players[i].cards.length === 0){
+      this.players.splice(i, 1);
+    }
+  }
+};
+
 Game.prototype.playRound = function () {
   let round = this.createRound();
   let category = this.findCategory(round);
@@ -56,6 +64,7 @@ Game.prototype.playRound = function () {
   winner = this.findPlayerById(winnerId)
   winner.isDeclaringPlayer = true;
   winner.addCardsToDeck(Object.values(round));
+  this.removeLosers();
   return winner;
 };
 

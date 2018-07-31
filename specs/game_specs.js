@@ -22,8 +22,8 @@ beforeEach(function(){
   card4 = new Card("Flash", 7,4,10);
   card5 = new Card("Wonder Woman", 8,7,5);
   card6 = new Card("Batman", 10,5,6);
-  cards1= [card1,card3];
-  cards2= [card2,card4];
+  cards1= [card1,card4];
+  cards2= [card2,card3];
   cards3= [card5,card6];
   player1 = new Player(1, "Can", cards1);
   player2 = new Player(2, "Stuart", cards2);
@@ -41,12 +41,18 @@ it("should let first player starts as declaring player", function () {
 });
 
 it("should be able to find a winner", function () {
-  let result = game.playRound();
-  assert.deepStrictEqual(result, player2);
+  let winner = game.playRound();
+  assert.deepStrictEqual(winner, player2);
   assert.strictEqual(player2.cards.length, 4);
   assert.strictEqual(player1.cards.length, 1);
   assert.strictEqual(player1.isDeclaringPlayer, false);
   assert.strictEqual(player2.isDeclaringPlayer, true);
-})
+});
+
+it("can remove losers from game", function () {
+  game.playRound();
+  game.playRound();
+  assert.deepStrictEqual(game.players, [player1, player2]);
+});
 
 });
