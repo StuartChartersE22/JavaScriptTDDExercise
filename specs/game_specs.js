@@ -20,8 +20,8 @@ beforeEach(function(){
   card2 = new Card("Scarlet Witch", 7, 10,5);
   card3 = new Card("Black Widow", 8, 6, 9);
   card4 = new Card("Flash", 7,4,10);
-  cards1= [card1,card2]
-  cards2= [card3,card4];
+  cards1= [card2,card3]
+  cards2= [card1,card4];
   player1 = new Player("Can", cards1);
   player2 = new Player("Stuart", cards2);
   players= [player1, player2];
@@ -38,8 +38,9 @@ it("should let first player starts as declaring player", function () {
 
 it("should be able to play a round and the winner will be player 1 and get the cards", function () {
   game.playRound();
-  assert.strictEqual(player1.cards.length, 3);
-  assert.strictEqual(player2.cards.length, 1);
+  game.playRound();
+  assert.strictEqual(player1.cards.length, 2);
+  assert.strictEqual(player2.cards.length, 2);
 })
 
 
