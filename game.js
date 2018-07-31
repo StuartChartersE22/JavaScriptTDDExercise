@@ -8,9 +8,9 @@ Game.prototype.isCard1Greater = function (category, card1, card2) {
 };
 
 Game.prototype.createRound = function () {
-  let round = {};
+  let round = new Map();
   for(let player of this.players){
-    round[player.id] = player.drawCard();
+    round.set(player, player.drawCard());
   }
   return round;
 };
@@ -18,7 +18,7 @@ Game.prototype.createRound = function () {
 Game.prototype.findCategory = function (round) {
   for(let player of this.players){
     if(player.isDeclaringPlayer){
-      const card = round[player.id];
+      const card = round.get(player);
       return player.selectCategory(card);
     }
   }
@@ -54,16 +54,15 @@ Game.prototype.playRound = function () {
   const declaringPlayer = this.findDeclaringPlayer();
   declaringPlayer.isDeclaringPlayer = false;
 
-  let winnerId = declaringPlayer.id;
-  for(let playerId in round){
-    if(round[playerId][category] > round[winnerId][category]){
-      winnerId = playerId;
+  let winner = declaringPlayer;
+  round.forEach(function (value, key, map) {
+    if(value[category] > round.get(winner)[category]){
+      winner = key;
     }
-  }
+  });
 
-  winner = this.findPlayerById(winnerId)
   winner.isDeclaringPlayer = true;
-  winner.addCardsToDeck(Object.values(round));
+  winner.addCardsToDeck(Array.from(round.values()));
   this.removeLosers();
   return winner;
 };

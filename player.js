@@ -1,5 +1,4 @@
-const Player = function(id, name, cards) {
-  this.id = id;
+const Player = function(name, cards) {
   this.name = name;
   this.cards = cards;
   this.isDeclaringPlayer =false;

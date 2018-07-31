@@ -25,9 +25,9 @@ beforeEach(function(){
   cards1= [card1,card4];
   cards2= [card2,card3];
   cards3= [card5,card6];
-  player1 = new Player(1, "Can", cards1);
-  player2 = new Player(2, "Stuart", cards2);
-  player3 = new Player(3, "Bob", cards3);
+  player1 = new Player("Can", cards1);
+  player2 = new Player("Stuart", cards2);
+  player3 = new Player("Bob", cards3);
   players= [player1, player2, player3];
   game = new Game(players);
 });
