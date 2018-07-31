@@ -38,7 +38,13 @@ it("can choose the highest category", function(){
 const drawnCard = player.drawCard()
 const result = player.selectCategory(drawnCard);
 assert.strictEqual(result, "strength");
+});
+
+it("should start as not the declaring player", function(){
+
+assert.strictEqual(player.isDeclaringPlayer, false);
 
 });
+
 
 });

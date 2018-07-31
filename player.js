@@ -1,6 +1,7 @@
 const Player = function(name, cards) {
   this.name = name;
   this.cards = cards;
+  this.isDeclaringPlayer =false;
 }
 module.exports = Player;
 
@@ -21,9 +22,6 @@ Player.prototype.selectCategory = function (card) {
       selectedCategory=property;
     }
     }
-
   }
-
   return selectedCategory;
-
 };
