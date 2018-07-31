@@ -25,3 +25,7 @@ Player.prototype.selectCategory = function (card) {
   }
   return selectedCategory;
 };
+
+Player.prototype.giveCard = function (card) {
+  this.cards.push(card);
+};

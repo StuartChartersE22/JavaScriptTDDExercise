@@ -33,9 +33,14 @@ it("should have players", function () {
 });
 
 it("should let first player starts as declaring player", function () {
-  assert.deepStrictEqual(game.declaringPlayer, player1);
+  assert.strictEqual(player1.isDeclaringPlayer, true);
 });
 
+it("should be able to play a round and the winner will be player 1 and get the cards", function () {
+  game.playRound();
+  assert.strictEqual(player1.cards.length, 3);
+  assert.strictEqual(player2.cards.length, 1);
+})
 
 
 
