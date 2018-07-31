@@ -1,4 +1,5 @@
-const Player = function(name, cards) {
+const Player = function(id, name, cards) {
+  this.id = id;
   this.name = name;
   this.cards = cards;
   this.isDeclaringPlayer =false;
@@ -26,6 +27,10 @@ Player.prototype.selectCategory = function (card) {
   return selectedCategory;
 };
 
-Player.prototype.giveCard = function (card) {
+Player.prototype.addCardToDeck = function (card) {
   this.cards.push(card);
+};
+
+Player.prototype.addCardsToDeck = function (cards) {
+  this.cards = this.cards.concat(cards);
 };

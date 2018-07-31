@@ -15,7 +15,7 @@ beforeEach(function(){
   card3 = new Card("Black Widow", 8, 6, 9);
   card4 = new Card("Flash", 7,4,10);
   cards= [card1,card2,card3,card4];
-  player = new Player("Can", cards);
+  player = new Player(1, "Can", cards);
 
 });
 

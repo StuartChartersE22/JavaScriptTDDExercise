@@ -20,10 +20,10 @@ beforeEach(function(){
   card2 = new Card("Scarlet Witch", 7, 10,5);
   card3 = new Card("Black Widow", 8, 6, 9);
   card4 = new Card("Flash", 7,4,10);
-  cards1= [card2,card3]
-  cards2= [card1,card4];
-  player1 = new Player("Can", cards1);
-  player2 = new Player("Stuart", cards2);
+  cards1= [card1,card3]
+  cards2= [card2,card4];
+  player1 = new Player(1, "Can", cards1);
+  player2 = new Player(2, "Stuart", cards2);
   players= [player1, player2];
   game = new Game(players);
 });
@@ -36,14 +36,13 @@ it("should let first player starts as declaring player", function () {
   assert.strictEqual(player1.isDeclaringPlayer, true);
 });
 
-it("should be able to play a round and the winner will be player 1 and get the cards", function () {
-  game.playRound();
-  game.playRound();
-  assert.strictEqual(player1.cards.length, 2);
-  assert.strictEqual(player2.cards.length, 2);
+it("should be able to find a winner", function () {
+  let result = game.playRound();
+  assert.deepStrictEqual(result, player2);
+  assert.deepStrictEqual(player2.cards.length, 3);
+  assert.deepStrictEqual(player1.cards.length, 1);
+  assert.strictEqual(player1.isDeclaringPlayer, false);
+  assert.strictEqual(player2.isDeclaringPlayer, true);
 })
-
-
-
 
 });
