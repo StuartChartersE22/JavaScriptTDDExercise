@@ -47,9 +47,9 @@ Game.prototype.playRound = function () {
   declaringPlayer.isDeclaringPlayer = false;
 
   let winner = declaringPlayer;
-  round.forEach(function (value, key, map) {
-    if(value[category] > round.get(winner)[category]){
-      winner = key;
+  round.forEach((card, person) => {
+    if(card[category] > round.get(winner)[category]){
+      winner = person;
     }
   });
 

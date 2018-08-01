@@ -5,8 +5,6 @@ const Player = function(name, cards) {
 }
 module.exports = Player;
 
-
-
 Player.prototype.drawCard = function () {
   return this.cards.shift();
 
@@ -18,9 +16,9 @@ Player.prototype.selectCategory = function (card) {
   for (let property in card){
     if(property!=="name"){
       if (card[property]>highest){
-      highest=card[property];
-      selectedCategory=property;
-    }
+        highest=card[property];
+        selectedCategory=property;
+      }
     }
   }
   return selectedCategory;
