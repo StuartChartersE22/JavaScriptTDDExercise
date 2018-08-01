@@ -32,14 +32,6 @@ Game.prototype.findDeclaringPlayer = function () {
   }
 };
 
-Game.prototype.findPlayerById = function (id) {
-  for(let player of this.players){
-    if(player.id == id){
-      return player;
-    }
-  }
-};
-
 Game.prototype.removeLosers = function () {
   for(i=0; i<this.players.length; i++){
     if(this.players[i].cards.length === 0){
